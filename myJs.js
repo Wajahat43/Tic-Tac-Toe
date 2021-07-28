@@ -17,7 +17,7 @@ function playRound(playerSelection, computerSelection){
     let playerWinStatus = 1;
 
     if(inPlayerSelection === inComputerSelection){
-        return "Its a DRAW! Computer and Player both had same choices.";
+       return 2;
     }
     //loose Scenarios
     if(inPlayerSelection==="rock" && inComputerSelection == "paper"){
@@ -29,9 +29,10 @@ function playRound(playerSelection, computerSelection){
     }
 
     if(playerWinStatus ===1){
-        return "You win! " + playerSelection.toUpperCase() + " beats " + computerSelection.toUpperCase();
+        return 1;
     } else if(playerWinStatus===0){
-        return "You Loose! " + computerSelection.toUpperCase()+ " beats " +playerSelection.toUpperCase();
+       return 0;
     }
 
 }
+
