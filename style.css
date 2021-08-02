@@ -1,0 +1,27 @@
+h1{
+    text-align: center;
+    color:saddlebrown;
+    padding: 500px 500px auto;
+}
+
+.scoreCont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.scoreCont > h2{
+    margin: 50px;
+}
+
+.scoreCard{
+    text-align: center;
+}
+.button1{
+    font-size: 20px;
+    margin: 50px;
+}
+
+.result>h3{
+    text-align: center;
+}
+

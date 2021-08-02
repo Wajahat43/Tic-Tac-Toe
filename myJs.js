@@ -77,3 +77,11 @@ function game(){
         console.log("Alas User You have lost this Game");
     }
  }
+
+ function displayScore(computerScore, playerScore){
+    let  plScore = document.querySelector('#playerScore');
+    let comScore = document.querySelector('#computerScore');
+
+    plScore.textContent = playerScore;
+    comScore.textContent = computerScore;
+ }
