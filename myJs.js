@@ -1,3 +1,50 @@
+function displayScore(computerScore, playerScore,roundWinnerMsg){
+    let  plScore = document.querySelector('#playerScore');
+    let comScore = document.querySelector('#computerScore');
+    let roundRes = document.querySelector('.result');
+
+    plScore.textContent = playerScore;
+    comScore.textContent = computerScore;
+    roundRes.textContent = roundWinnerMsg; 
+
+ }
+
+let userChoice,computerChoice,userScore=0,computerScore=0;
+
+// let userSelectedButton = document.querySelector("#buttons");
+// userSelectedButton.addEventListener("click",handleClick(this.id));
+
+let myButtons = document.querySelectorAll(".button1");
+myButtons.forEach(button => button.addEventListener('click',function(e){
+    userChoice = this.id;
+    handleClick();
+    }) )
+
+
+function handleClick(){
+    computerChoice = computerPlay();
+
+    let roundResult = playRound(userChoice,computerChoice);
+    let roundWinnerMsg;
+       //Showing appropriate message about who won the Round.
+       if(roundResult === 1){
+        userScore++;
+        roundWinnerMsg = `User Won this Round! ${userChoice.toUpperCase()} beats ${computerChoice.toUpperCase()}`;
+        displayScore(userScore,computerScore,roundWinnerMsg);
+    } else if(roundResult ===0){
+        computerScore++;
+        roundWinnerMsg = `User Lost this Round! ${computerChoice.toUpperCase()} beats ${userChoice.toUpperCase()}`;
+        displayScore(userScore,computerScore,roundWinnerMsg);
+    } else{
+        roundWinnerMsg = `This round ended in Draw! ${userChoice.toUpperCase()} equals ${computerChoice.toUpperCase()}`;
+        displayScore(userScore,computerScore,roundWinnerMsg);
+    }
+}
+
+
+
+
+
 function computerPlay(){
     let randomNumber = Math.floor(Math.random()*3);
     if(randomNumber === 1){
@@ -36,52 +83,50 @@ function playRound(playerSelection, computerSelection){
 
 }
 
-function game(){
+// function game(){
 
-    let userScore = 0, computerScore = 0, myStr;
 
-    for(let i=0;i<5;i++){
-     let choice = "Enter Your choice (Rock,Paper, Scissors) for round "+ (i+1);  
-     let userChoice = prompt(choice);
-     let computerChoice = computerPlay();
-     let roundResult = playRound(userChoice,computerChoice);
-   
- 
-     //Showing appropriate message about who won the Round.
-     if(roundResult === 1){
-        userScore++;
-        myStr = "Congrats! User You have WON Round " + (i+1)
-    } else if(roundResult ===0){
-        computerScore++;
-        myStr = "Alas! User You have LOST Round " + (i+1)
-    } else{
-        myStr = "Round " + (i+1)+  " Ended in a draw";
-    }
 
-    console.log(myStr);
-   }
+//      let userChoice, userScore = 0, computerScore = 0, myStr, winner = false;
+//      userChoice = getInput();
+//      alert(userChoice);
 
-    //Showing appropriate message about who won the game.
-    declareGameWinner(userScore, computerScore)
+//     //  let computerChoice = computerPlay();
+//     //  let roundResult = playRound(userChoice,computerChoice);
 
-   
- }
 
- function declareGameWinner(userScore, computerScore){
+    //  //Showing appropriate message about who won the Round.
+    //  if(roundResult === 1){
+    //     userScore++;
+    //     myStr = "Congrats! User You have WON Round " + (i+1)
+    // } else if(roundResult ===0){
+    //     computerScore++;
+    //     myStr = "Alas! User You have LOST Round " + (i+1)
+    // } else{
+    //     myStr = "Round " + (i+1)+  " Ended in a draw";
+    // }
 
-    if(userScore>computerScore){
-        console.log("Congratulations USER! You Have Won this Game");
-    } else if(userScore === computerScore){
-        console.log("No one won this Game! IT ended in a draw");
-    } else{
-        console.log("Alas User You have lost this Game");
-    }
- }
+    // console.log(myStr);
+    // //Showing appropriate message about who won the game.
+    // declareGameWinner(userScore, computerScore);
 
- function displayScore(computerScore, playerScore){
-    let  plScore = document.querySelector('#playerScore');
-    let comScore = document.querySelector('#computerScore');
+// }
 
-    plScore.textContent = playerScore;
-    comScore.textContent = computerScore;
- }
+//  function declareGameWinner(userScore, computerScore){
+
+//     if(userScore>computerScore){
+//         console.log("Congratulations USER! You Have Won this Game");
+//     } else if(userScore === computerScore){
+//         console.log("No one won this Game! IT ended in a draw");
+//     } else{
+//         console.log("Alas User You have lost this Game");
+//     }
+//  }
+
+//  function displayScore(computerScore, playerScore){
+//     let  plScore = document.querySelector('#playerScore');
+//     let comScore = document.querySelector('#computerScore');
+
+//     plScore.textContent = playerScore;
+//     comScore.textContent = computerScore;
+//  }

@@ -4,13 +4,36 @@ h1{
     padding: 500px 500px auto;
 }
 
+.instructions>ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: space-around;
+    font-size: 18px;
+    margin: 0px;
+}
+.instructions> p{
+    font-size: 18px;
+    margin: 0px;
+}
+.instructions> h4{
+    margin: 0px;
+}
+
+.gameBox {
+    border: 2px;
+}
+
 .scoreCont{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .scoreCont > h2{
-    margin: 50px;
+    margin: 10px 40px 10px 40px ;
+}
+
+.scoreCont > h3{
+    margin: 10px 40px 10px 40px ;
 }
 
 .scoreCard{

@@ -3,40 +3,69 @@
 <html>
 
 <head>
-<title>Tic-Tac-Toe Game</title>
-<script src="myJs.js" defer></script>
-<link rel="stylesheet" href="style.css">
+    <title>Tic-Tac-Toe Game</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    
+
     <h1> Rock Paper Scissors </h1>
     <hr>
-
-    <h2 class="scoreCard"> Score Card</h2>
-
-    <div class="scoreCont">
-        <h2>Player</h2>
-        <h2>Computer</h2>
+    <div class="instructions">
+        <h4>Instructions </h4>
+        <ul>
+            <li>
+                <p>First to 5 round wins will be winner of the game.</p>
+            </li>
+            <li>
+                <p>Paper beats Rock</p>
+            </li>
+            <li>
+                <p>Scissor beats Paper</p>
+            </li>
+            <li>
+                <p>Rock beats Scissor</p>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <p>Click on any of the buttons to play</p>
+            </li>
+        </ul>
+        
     </div>
 
-    <div class="scoreCont">
-        <h3 id = "playerScore"></h3>
-        <h3 id = "computerScore"></h3>
+    <hr>
+    <div class="gameBox">
+
+        <h2 class="scoreCard"> Score Card</h2>
+
+        <div class="scoreCont">
+            <h2>Player</h2>
+            <h2>Computer</h2>
+        </div>
+
+        <div class="scoreCont">
+            <h3 id="playerScore">0</h3>
+            <h3 id="computerScore">0</h3>
+        </div>
+
+        <div class="scoreCont" id="buttons">
+
+            <button class="button1" id="rock">Rock</button>
+            <button class="button1" id="paper"> Paper</button>
+            <button class="button1" id="scissors">Scissors</button>
+        </div>
+
+        <div class="result">
+            <h3>Computer has won</h3>
+        </div>
+
     </div>
 
-    <div class="scoreCont">
 
-        <button class="button1" id="rock">Rock</button>
-        <button class="button1" id= "paper"> Paper</button>
-        <button class="button1" id = "scissors">Scissors</button>
-    </div>
-
-    <div class="result">
-        <h3>Computer has won</h3>
-    </div>
-
-
-
+    <script src="myJs.js"></script>
 </body>
+
 </html>
