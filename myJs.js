@@ -1,27 +1,30 @@
-function displayScore(computerScore, playerScore,roundWinnerMsg){
+function displayScore(playerScore, computerScore,roundWinnerMsg){
     let  plScore = document.querySelector('#playerScore');
     let comScore = document.querySelector('#computerScore');
-    let roundRes = document.querySelector('.result');
+    let roundRes = document.querySelector('.roundResult');
 
     plScore.textContent = playerScore;
     comScore.textContent = computerScore;
     roundRes.textContent = roundWinnerMsg; 
+    roundRes.style.cssText = "text-align:center;font-weight:600;font-size:18px;margin:10px";
 
- }
+}
 
 let userChoice,computerChoice,userScore=0,computerScore=0;
-
-// let userSelectedButton = document.querySelector("#buttons");
-// userSelectedButton.addEventListener("click",handleClick(this.id));
 
 let myButtons = document.querySelectorAll(".button1");
 myButtons.forEach(button => button.addEventListener('click',function(e){
     userChoice = this.id;
-    handleClick();
+    if(userChoice != "restartGame"){
+        handleClick();
+    }
+  
     }) )
 
 
 function handleClick(){
+
+  
     computerChoice = computerPlay();
 
     let roundResult = playRound(userChoice,computerChoice);
@@ -38,6 +41,11 @@ function handleClick(){
     } else{
         roundWinnerMsg = `This round ended in Draw! ${userChoice.toUpperCase()} equals ${computerChoice.toUpperCase()}`;
         displayScore(userScore,computerScore,roundWinnerMsg);
+    }
+
+    if(isGameFinished()){
+        endGame();
+        return;
     }
 }
 
@@ -83,50 +91,60 @@ function playRound(playerSelection, computerSelection){
 
 }
 
-// function game(){
+function isGameFinished(){
+   if(computerScore===5){
+       return true;
+   }
+   if(userScore ===5){
+       return true;
+   }
+   else{
+       return false;
+   }
 
 
+}
 
-//      let userChoice, userScore = 0, computerScore = 0, myStr, winner = false;
-//      userChoice = getInput();
-//      alert(userChoice);
+function endGame(){
 
-//     //  let computerChoice = computerPlay();
-//     //  let roundResult = playRound(userChoice,computerChoice);
+    const gameResultMsg = document.querySelector('.gameResultMsg');
+    
+    if(userScore===5){
+        gameResultMsg.innerHTML = `<p>Congratulations User, You Have Won This Game.<br> Final Score <br> User: ${userScore} <br> Computer: ${computerScore}`;
+    } else{
+        gameResultMsg.innerHTML = `<p>Alas User! You have lost this game.<br> Final Score <br> User: ${userScore} <br> Computer: ${computerScore}`;
+    }
 
+  
 
-    //  //Showing appropriate message about who won the Round.
-    //  if(roundResult === 1){
-    //     userScore++;
-    //     myStr = "Congrats! User You have WON Round " + (i+1)
-    // } else if(roundResult ===0){
-    //     computerScore++;
-    //     myStr = "Alas! User You have LOST Round " + (i+1)
-    // } else{
-    //     myStr = "Round " + (i+1)+  " Ended in a draw";
-    // }
+    let plScore = document.querySelector('#playerScore');
+    let comScore = document.querySelector('#computerScore');
+    let roundRes = document.querySelector('.roundResult');
+    plScore.textContent =0;
+    comScore.textContent = 0;
+    roundRes.textContent = "Round Result";
 
-    // console.log(myStr);
-    // //Showing appropriate message about who won the game.
-    // declareGameWinner(userScore, computerScore);
+    const gameCl = document.querySelector('.game');
+    gameCl.style.cssText = "display:none";
 
-// }
+    const gameRes = document.querySelector('.gameResult');
+    gameRes.style.cssText = "display:block";
 
-//  function declareGameWinner(userScore, computerScore){
+    
 
-//     if(userScore>computerScore){
-//         console.log("Congratulations USER! You Have Won this Game");
-//     } else if(userScore === computerScore){
-//         console.log("No one won this Game! IT ended in a draw");
-//     } else{
-//         console.log("Alas User You have lost this Game");
-//     }
-//  }
+}
 
-//  function displayScore(computerScore, playerScore){
-//     let  plScore = document.querySelector('#playerScore');
-//     let comScore = document.querySelector('#computerScore');
+const restartButton = document.querySelector('#restartGame');
+restartButton.addEventListener('click', function(e){
+    showGameScreen();
+} )
+function showGameScreen(){
+        const gameCl = document.querySelector('.game');
+        gameCl.style.cssText = "display:block";
+    
+        const gameRes = document.querySelector('.gameResult');
+        gameRes.style.cssText = "display:none";
 
-//     plScore.textContent = playerScore;
-//     comScore.textContent = computerScore;
-//  }
+        computerScore =0;
+        userScore =0;
+}

@@ -3,13 +3,14 @@
 <html>
 
 <head>
-    <title>Tic-Tac-Toe Game</title>
+    <title>Rock Paper Scissors Game</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+   <div class="game">
     <h1> Rock Paper Scissors </h1>
     <hr>
     <div class="instructions">
@@ -35,7 +36,6 @@
         </ul>
         
     </div>
-
     <hr>
     <div class="gameBox">
 
@@ -58,12 +58,16 @@
             <button class="button1" id="scissors">Scissors</button>
         </div>
 
-        <div class="result">
-            <h3>Computer has won</h3>
+        <div class="roundResult">
+            <h3>Round Result</h3>
         </div>
 
     </div>
-
+   </div>
+   <div class ="gameResult">
+       <p class="gameResultMsg">Result of the game</p>
+       <button class="button1" id ="restartGame"> Restart Game</button>
+   </div>
 
     <script src="myJs.js"></script>
 </body>
